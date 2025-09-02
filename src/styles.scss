@@ -32,3 +32,27 @@
   }
 }
 
+/* contact */
+#contact {
+  background:#f7fafc;
+  border-top:1px solid var(--border);
+  text-align:center;
+}
+#contact .section-title {
+  color: var(--ink); /* dark title */
+}
+.contact-wrapper__text {
+  color: var(--ink-soft); /* medium gray text */
+  font-size: 18px;
+  margin: 0 0 16px 0;
+}
+#contact .cta {
+  background: var(--ink);
+  color: #fff !important;
+  border: none;
+}
+#contact .cta:hover {
+  filter: brightness(1.08);
+}
+
+
