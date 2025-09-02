@@ -3,46 +3,174 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
     <link rel="shortcut icon" type="image/png" href="assets/favicon.png" />
 
     <title>Michael LeBlanc | Developer</title>
-    <meta name="keywords" content="[username], [name], skill" />
-    <meta name="description" content="Michael LeBlanc | Developer" />
+    <meta name="keywords" content="Michael LeBlanc, Full Stack, React, Node" />
+    <meta name="description" content="Michael LeBlanc | Full Stack Developer" />
 
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+    <!-- your existing stylesheet can stay; inline CSS below normalizes layout -->
     <link rel="stylesheet" href="styles.scss" />
-
-    <!-- Removed ScrollReveal (was causing hidden-on-load) -->
-    <!-- <script defer src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script> -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 
-    <!-- Force-show anything previously hidden by reveal classes + polish hero CTAs -->
+    <!-- Minimal, opinionated fixes so it “just looks good and normal” -->
     <style>
-      .load-hidden, .hidden, .is-hidden {
-        opacity: 1 !important;
-        visibility: visible !important;
-        transform: none !important;
+      :root{
+        --ink:#1f2440;
+        --ink-soft:#2f3558;
+        --brand:#10c2b1;
+        --muted:#64748b;
+        --bg:#ffffff;
+        --card:#f8fafc;
+        --border:#e2e8f0;
       }
 
-      .hero-cta .cta-btn { display: inline-block; margin-right: .75rem; margin-bottom: .5rem; }
-      .cta-btn--hero {
-        color: #fff !important;
-        border-radius: 8px;
-        padding: .7rem 1.1rem;
-        border: 0;
-        font-size: 1rem;
-        line-height: 1.2;
+      /* reset-ish */
+      *{box-sizing:border-box}
+      body{
+        margin:0;
+        font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+        color:var(--ink);
+        background:var(--bg);
+        line-height:1.6;
       }
-      .cta-btn--hero:hover { filter: brightness(1.06); }
-      .cta-btn.text-color-main {
-        color: #0f3d5e !important;
-        border-radius: 8px;
-        padding: .65rem 1.05rem;
+      img{max-width:100%;height:auto;display:block}
+
+      /* containers & spacing */
+      .container{max-width:1140px;margin:0 auto;padding:0 20px}
+      section{padding:64px 0}
+      .section-title{
+        margin:0 0 24px 0;
+        font-size:28px;
+        letter-spacing:.2px;
       }
+
+      /* hero */
+      #hero{
+        padding:96px 0 72px 0;
+        background:linear-gradient(180deg,#ffffff 0%, #f9fbff 100%);
+      }
+      .hero-title{
+        font-size:clamp(28px,5vw,56px);
+        line-height:1.15;
+        font-weight:800;
+        margin:0 0 16px;
+      }
+      .text-color-main{color:var(--brand)}
+      .hero-cta{margin-top:16px}
+      .cta{
+        display:inline-block;
+        padding:12px 18px;
+        border-radius:10px;
+        border:1px solid var(--border);
+        text-decoration:none;
+        font-weight:600;
+        margin-right:12px;
+        transition:transform .05s ease, background .15s ease, color .15s ease, border-color .15s ease;
+      }
+      .cta-primary{
+        background:var(--ink);
+        color:#fff !important;
+        border-color:var(--ink);
+      }
+      .cta-primary:hover{transform:translateY(-1px);filter:brightness(1.06)}
+      .cta-ghost{
+        color:var(--ink);
+        background:#fff;
+      }
+      .cta-ghost:hover{
+        color:var(--brand);
+        border-color:var(--brand);
+        transform:translateY(-1px);
+      }
+
+      /* about */
+      #about .about{
+        display:grid;
+        grid-template-columns: 280px 1fr;
+        gap:28px;
+        align-items:start;
+      }
+      #about .portrait{
+        border-radius:16px;
+        box-shadow:0 8px 30px rgba(31,36,64,.12);
+      }
+      @media (max-width:800px){
+        #about .about{grid-template-columns:1fr}
+      }
+
+      /* projects */
+      #projects{background:#fff}
+      .project-list{
+        display:grid;
+        gap:48px;
+      }
+      /* each project row = two columns on desktop, stacked on mobile */
+      .project{
+        display:grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap:28px;
+        align-items:start;
+      }
+      .project:nth-child(even){grid-template-columns: 1fr 1.2fr}
+      @media (max-width:1000px){
+        .project, .project:nth-child(even){grid-template-columns:1fr;gap:18px}
+      }
+      .project h3{
+        margin:0 0 10px 0;
+        font-size:24px;
+      }
+      .project p{color:var(--ink-soft); margin:0 0 16px 0}
+      .tech{
+        display:flex;
+        flex-wrap:wrap;
+        gap:8px;
+        margin:12px 0 18px;
+      }
+      .tech span{
+        font-size:12px;
+        padding:6px 10px;
+        border-radius:999px;
+        background:#eef2f7;
+        color:#24324a;
+        border:1px solid var(--border);
+      }
+      .shot{
+        background:var(--card);
+        border:1px solid var(--border);
+        border-radius:14px;
+        overflow:hidden;
+        box-shadow:0 8px 30px rgba(31,36,64,.12);
+      }
+      .shot img{width:100%;height:auto}
+      .project .links{margin-top:14px}
+
+      /* contact */
+      #contact{
+        background:#f7fafc;
+        border-top:1px solid var(--border);
+      }
+      .contact-wrapper__text{margin:0 0 16px 0}
+
+      /* footer */
+      footer{
+        border-top:1px solid var(--border);
+        background:#fff;
+        padding:28px 0;
+      }
+      .footer__row{
+        display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap
+      }
+      .social a{color:var(--ink);margin-right:12px}
+      .footer__text{color:var(--muted);margin:0}
     </style>
   </head>
 
@@ -50,25 +178,15 @@
     <div id="top"></div>
 
     <!-- **** Hero Section **** -->
-    <section id="hero" class="jumbotron">
+    <section id="hero">
       <div class="container">
         <h1 class="hero-title">
-          Hi, my name is <span class="text-color-main">Michael LeBlanc</span>
-          <br />
+          Hi, my name is <span class="text-color-main">Michael LeBlanc</span><br />
           I'm a Full Stack Developer.
         </h1>
         <p class="hero-cta">
-          <a
-            rel="noreferrer"
-            target="_blank"
-            class="cta-btn cta-btn--hero"
-            href="assets/Michael_LeBlanc_Resume.pdf"
-          >
-            Resume
-          </a>
-          <a rel="noreferrer" class="cta-btn text-color-main" href="#projects">
-            View Projects
-          </a>
+          <a class="cta cta-primary" href="assets/Michael_LeBlanc_Resume.pdf" target="_blank" rel="noreferrer">Resume</a>
+          <a class="cta cta-ghost" href="#projects" rel="noreferrer">View Projects</a>
         </p>
       </div>
     </section>
@@ -77,38 +195,22 @@
     <!-- **** About Section **** -->
     <section id="about">
       <div class="container">
-        <h2 class="section-title load-hidden">About me</h2>
-        <div class="row about-wrapper">
-          <div class="col-md-6 col-sm-12">
-            <div class="about-wrapper__image load-hidden">
-              <img
-                alt="Profile Image"
-                class="img-fluid rounded shadow-lg"
-                height="auto"
-                width="300px"
-                src="assets/profile.jpg"
-              />
-            </div>
-          </div>
-          <div class="col-md-6 col-sm-12">
-            <div class="about-wrapper__info load-hidden">
-              <p class="about-wrapper__info-text">
-                Full Stack developer based in Boston, MA. Passionate about creating web applications, primarily using HTML, CSS, Javascript, React, Node.js, Express.js, and PostgreSQL. Always excited to learn more and grow.
-              </p>
-              <p class="about-wrapper__info-text">
-                When not coding, I enjoy sports, hanging out with friends and family, and playing video games.
-              </p>
-              <span class="d-flex mt-3">
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  class="cta-btn cta-btn--resume"
-                  href="assets/Michael_LeBlanc_Resume.pdf"
-                >
-                  View Resume
-                </a>
-              </span>
-            </div>
+        <h2 class="section-title">About me</h2>
+        <div class="about">
+          <img src="assets/profile.jpg" alt="Profile headshot of Michael LeBlanc" class="portrait" />
+          <div>
+            <p>
+              Full-stack developer based in Boston, MA. I build modern web apps with
+              HTML, CSS, JavaScript, React, Node.js, Express, and databases (MongoDB / SQL).
+              I’m hands-on, collaborative, and always excited to learn and ship.
+            </p>
+            <p>
+              When I’m not coding, you’ll find me watching sports, with friends and family,
+              or gaming.
+            </p>
+            <p>
+              <a class="cta cta-ghost" href="assets/Michael_LeBlanc_Resume.pdf" target="_blank" rel="noreferrer">View Resume</a>
+            </p>
           </div>
         </div>
       </div>
@@ -118,207 +220,86 @@
     <!-- **** Projects Section **** -->
     <section id="projects">
       <div class="container">
-        <div class="project-wrapper">
-          <h2 class="section-title dark-blue-text">Projects</h2>
+        <h2 class="section-title">Projects</h2>
 
-          <!-- Project: New Hampshire Crowd Funding -->
-          <div class="row">
-            <div class="col-lg-4 col-sm-12">
-              <div class="project-wrapper__text load-hidden">
-                <h3 class="project-wrapper__text-title">New Hampshire Crowd Funding</h3>
-                <div>
-                  <p class="mb-4">
-                    A full stack application that allows users to view, create, and contribute to great crowdfunding causes submitted by various users.
-                  </p>
+        <div class="project-list">
 
-                  <!-- Technologies -->
-                  <div class="project-tech-stack">
-                    <h4 class="project-tech-title">Technologies</h4>
-                    <ul class="project-tech">
-                      <li>React (Vite)</li>
-                      <li>Node.js</li>
-                      <li>Express.js</li>
-                      <li>MongoDB &amp; Mongoose</li>
-                      <li>GraphQL &amp; Apollo</li>
-                      <li>JWT Authentication</li>
-                      <li>Heroku</li>
-                    </ul>
-                  </div>
-                </div>
-
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  class="cta-btn cta-btn--hero"
-                  href="https://new-hamp-crowdfunding-c62096d1a313.herokuapp.com/signin"
-                >
-                  See Live
-                </a>
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  class="cta-btn text-color-main"
-                  href="https://github.com/mleblanc94/new-hampshire-crowdfunding"
-                >
-                  Source Code
-                </a>
+          <!-- Project 1 -->
+          <article class="project">
+            <div>
+              <h3>New Hampshire Crowd Funding</h3>
+              <p>
+                A full-stack application that allows users to view, create, and contribute
+                to great crowdfunding causes submitted by the community.
+              </p>
+              <div class="tech" aria-label="Technologies used">
+                <span>React (Vite)</span><span>Node.js</span><span>Express.js</span>
+                <span>MongoDB &amp; Mongoose</span><span>GraphQL &amp; Apollo</span>
+                <span>JWT Auth</span><span>Heroku</span>
+              </div>
+              <div class="links">
+                <a class="cta cta-primary" target="_blank" rel="noreferrer"
+                   href="https://new-hamp-crowdfunding-c62096d1a313.herokuapp.com/signin">See Live</a>
+                <a class="cta cta-ghost" target="_blank" rel="noreferrer"
+                   href="https://github.com/mleblanc94/new-hampshire-crowdfunding">Source Code</a>
               </div>
             </div>
-            <div class="col-lg-8 col-sm-12">
-              <div class="project-wrapper__image load-hidden">
-                <a rel="noreferrer" href="#!" target="_blank">
-                  <div
-                    data-tilt
-                    data-tilt-max="4"
-                    data-tilt-glare="true"
-                    data-tilt-max-glare="0.5"
-                    class="thumbnail rounded js-tilt"
-                  >
-                    <img
-                      alt="Project Image"
-                      class="img-fluid"
-                      src="assets/crowd-funding.png"
-                    />
-                  </div>
-                </a>
+            <div class="shot">
+              <img src="assets/crowd-funding.png" alt="Screenshot of the New Hampshire Crowd Funding app" />
+            </div>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="project">
+            <div>
+              <h3>Recipe Sharing Hub</h3>
+              <p>
+                MERN application to create, browse, and share recipes. Includes JWT auth
+                with a “Continue as Guest” option, GraphQL API, and scalable MongoDB models.
+              </p>
+              <div class="tech" aria-label="Technologies used">
+                <span>React (Vite)</span><span>Apollo Client</span><span>Node.js</span>
+                <span>Express.js</span><span>GraphQL &amp; Apollo Server</span>
+                <span>MongoDB &amp; Mongoose</span><span>JWT Auth</span><span>Heroku</span>
+              </div>
+              <div class="links">
+                <a class="cta cta-primary" target="_blank" rel="noreferrer"
+                   href="https://recipe-sharing-hub-97ef44b34b8f.herokuapp.com/">See Live</a>
+                <a class="cta cta-ghost" target="_blank" rel="noreferrer"
+                   href="https://github.com/mleblanc94/recipe-sharing">Source Code</a>
               </div>
             </div>
-          </div>
-          <!-- /END Project -->
+            <div class="shot">
+              <img src="assets/recipe-share.png" alt="Screenshot of the Recipe Sharing Hub app" />
+            </div>
+          </article>
 
-          <!-- Project: Recipe Sharing Hub -->
-          <div class="row">
-            <div class="col-lg-4 col-sm-12">
-              <div class="project-wrapper__text load-hidden">
-                <h3 class="project-wrapper__text-title">Recipe Sharing Hub</h3>
-                <div>
-                  <p class="mb-4">
-                    A full-stack MERN application where users can create, browse, and share recipes with a community. Features include JWT authentication with a “Continue as Guest” option, GraphQL API integration, and dynamic MongoDB data models for storing recipes and user interactions. This project highlights my ability to design responsive UIs, implement secure authentication flows, and build scalable back-end services.
-                  </p>
-
-                  <!-- Technologies -->
-                  <div class="project-tech-stack">
-                    <h4 class="project-tech-title">Technologies</h4>
-                    <ul class="project-tech">
-                      <li>React (Vite)</li>
-                      <li>Apollo Client</li>
-                      <li>Node.js</li>
-                      <li>Express.js</li>
-                      <li>GraphQL &amp; Apollo Server</li>
-                      <li>MongoDB &amp; Mongoose</li>
-                      <li>JWT Authentication</li>
-                      <li>Heroku</li>
-                    </ul>
-                  </div>
-                </div>
-
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  class="cta-btn cta-btn--hero"
-                  href="https://recipe-sharing-hub-97ef44b34b8f.herokuapp.com/"
-                >
-                  See Live
-                </a>
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  class="cta-btn text-color-main"
-                  href="https://github.com/mleblanc94/recipe-sharing"
-                >
-                  Source Code
-                </a>
+          <!-- Project 3 -->
+          <article class="project">
+            <div>
+              <h3>Book Reviewer</h3>
+              <p>
+                Full-stack app where users create an account, receive a welcome email,
+                then search and review books.
+              </p>
+              <div class="tech" aria-label="Technologies used">
+                <span>Node.js</span><span>Express.js</span><span>MySQL</span>
+                <span>Sequelize</span><span>Express-Handlebars</span>
+                <span>Express-Session</span><span>connect-session-sequelize</span>
+                <span>bcrypt</span><span>dotenv</span><span>Nodemailer</span><span>Heroku</span>
+              </div>
+              <div class="links">
+                <a class="cta cta-primary" target="_blank" rel="noreferrer"
+                   href="https://book-reviewer-new-fcafe92f19dd.herokuapp.com/">See Live</a>
+                <a class="cta cta-ghost" target="_blank" rel="noreferrer"
+                   href="https://github.com/mleblanc94/book-reviewer">Source Code</a>
               </div>
             </div>
-            <div class="col-lg-8 col-sm-12">
-              <div class="project-wrapper__image load-hidden">
-                <a rel="noreferrer" href="" target="_blank">
-                  <div
-                    data-tilt
-                    data-tilt-max="4"
-                    data-tilt-glare="true"
-                    data-tilt-max-glare="0.5"
-                    class="thumbnail rounded js-tilt"
-                  >
-                    <img
-                      alt="Project Image"
-                      class="img-fluid"
-                      src="assets/recipe-share.png"
-                    />
-                  </div>
-                </a>
-              </div>
+            <div class="shot">
+              <img src="assets/book-reviewer.png" alt="Screenshot of the Book Reviewer app" />
             </div>
-          </div>
-          <!-- /END Project -->
+          </article>
 
-          <!-- Project: Book Reviewer -->
-          <div class="row">
-            <div class="col-lg-4 col-sm-12">
-              <div class="project-wrapper__text load-hidden">
-                <h3 class="project-wrapper__text-title">Book Reviewer</h3>
-                <div>
-                  <p class="mb-4">
-                    A full-stack application which allows a user to create an account, receive a welcome email, then search and select a book to leave a review on.
-                  </p>
-
-                  <!-- Technologies -->
-                  <div class="project-tech-stack">
-                    <h4 class="project-tech-title">Technologies</h4>
-                    <ul class="project-tech">
-                      <li>Node.js</li>
-                      <li>Express.js</li>
-                      <li>MySQL</li>
-                      <li>Sequelize ORM</li>
-                      <li>Express-Handlebars</li>
-                      <li>Express-Session &amp; connect-session-sequelize</li>
-                      <li>bcrypt</li>
-                      <li>dotenv</li>
-                      <li>Nodemailer</li>
-                      <li>Heroku</li>
-                    </ul>
-                  </div>
-                </div>
-
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  class="cta-btn cta-btn--hero"
-                  href="https://book-reviewer-new-fcafe92f19dd.herokuapp.com/"
-                >
-                  See Live
-                </a>
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  class="cta-btn text-color-main"
-                  href="https://github.com/mleblanc94/book-reviewer"
-                >
-                  Source Code
-                </a>
-              </div>
-            </div>
-            <div class="col-lg-8 col-sm-12">
-              <div class="project-wrapper__image load-hidden">
-                <a rel="noreferrer" href="#!" target="_blank">
-                  <div
-                    data-tilt
-                    data-tilt-max="4"
-                    data-tilt-glare="true"
-                    data-tilt-max-glare="0.5"
-                    class="thumbnail rounded js-tilt"
-                  >
-                    <img
-                      alt="Project Image"
-                      class="img-fluid"
-                      src="assets/book-reviewer.png"
-                    />
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-          <!-- /END Project -->
         </div>
       </div>
     </section>
@@ -328,39 +309,31 @@
     <section id="contact">
       <div class="container">
         <h2 class="section-title">Contact</h2>
-        <div class="contact-wrapper load-hidden">
-          <p class="contact-wrapper__text">leblancmichael94@gmail.com | (978) 399-8442</p>
-          <a
-            rel="noreferrer"
-            target="_blank"
-            class="cta-btn cta-btn--resume"
-            href="mailto:leblancmichael94@email.com"
-          >Send Email</a>
+        <div class="contact-wrapper">
+          <p class="contact-wrapper__text">
+            leblancmichael94@gmail.com &nbsp;|&nbsp; (978) 399-8442
+          </p>
+          <p>
+            <a class="cta cta-primary" href="mailto:leblancmichael94@gmail.com" rel="noreferrer">Send Email</a>
+          </p>
         </div>
       </div>
     </section>
     <!-- /END Contact Section -->
 
     <!-- **** Footer Section **** -->
-    <footer class="footer navbar-static-bottom">
-      <div class="container">
-        <a rel="noreferrer" href="#top" class="back-to-top">
-          <i class="fa fa-angle-up fa-2x" aria-hidden="true"></i>
-        </a>
-        <div class="social-links">
-          <a rel="noreferrer" href="https://www.linkedin.com/in/michael-leblanc-a868869a/" target="_blank">
-            <i class="fa fa-linkedin fa-inverse"></i>
+    <footer>
+      <div class="container footer__row">
+        <a href="#top" class="cta cta-ghost" rel="noreferrer">Back to top</a>
+        <div class="social">
+          <a rel="noreferrer" href="https://www.linkedin.com/in/michael-leblanc-a868869a/" target="_blank" aria-label="LinkedIn">
+            <i class="fa fa-linkedin fa-lg"></i>
           </a>
-          <a rel="noreferrer" href="https://github.com/mleblanc94" target="_blank">
-            <i class="fa fa-github fa-inverse"></i>
+          <a rel="noreferrer" href="https://github.com/mleblanc94" target="_blank" aria-label="GitHub">
+            <i class="fa fa-github fa-lg"></i>
           </a>
         </div>
-
-        <hr />
-
-        <p class="footer__text">
-          © 2025 - <a rel="noreferrer" href="https://github.com/cobidev" target="_blank">Michael LeBlanc</a>
-        </p>
+        <p class="footer__text">© 2025 Michael LeBlanc</p>
       </div>
     </footer>
 
