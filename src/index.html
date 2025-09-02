@@ -6,11 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="shortcut icon" type="image/png" href="assets/favicon.png" />
 
-    <!-- Todo: put here your site title -->
     <title>Michael LeBlanc | Developer</title>
-    <!-- Todo: add some coding keywords below - e.g: (javascript, yourusername, etc) -->
     <meta name="keywords" content="[username], [name], skill" />
-    <!-- Todo: improve your SEO by adding a small description of you -->
     <meta name="description" content="Michael LeBlanc | Developer" />
 
     <link
@@ -22,12 +19,9 @@
       defer
       src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"
     ></script>
-
-    <!-- Todo: remove the below script once you finish your portfolio -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
   </head>
 
-  <!-- Todo: read the following HTML Todos to create your stunning portfolio website -->
   <body>
     <div id="top"></div>
 
@@ -95,7 +89,7 @@
         <div class="project-wrapper">
           <h2 class="section-title dark-blue-text">Projects</h2>
 
-          <!-- Notice: each .row is a project. Project Start -->
+          <!-- Project: New Hampshire Crowd Funding -->
           <div class="row">
             <div class="col-lg-4 col-sm-12">
               <div class="project-wrapper__text load-hidden">
@@ -104,7 +98,23 @@
                   <p class="mb-4">
                     A full stack application that allows users to view, create, and contribute to great crowdfunding causes submitted by various users.
                   </p>
+
+                  <!-- NEW: Technologies -->
+                  <div class="project-tech-stack">
+                    <h4 class="project-tech-title">Technologies</h4>
+                    <ul class="project-tech">
+                      <li>React (Vite)</li>
+                      <li>Node.js</li>
+                      <li>Express.js</li>
+                      <li>MongoDB &amp; Mongoose</li>
+                      <li>GraphQL &amp; Apollo</li>
+                      <li>JWT Authentication</li>
+                      <li>Heroku</li>
+                    </ul>
+                  </div>
+                  <!-- /Technologies -->
                 </div>
+
                 <a
                   rel="noreferrer"
                   target="_blank"
@@ -144,7 +154,8 @@
             </div>
           </div>
           <!-- /END Project -->
-           <!-- Notice: each .row is a project. Project Start -->
+
+          <!-- Project: Recipe Sharing Hub -->
           <div class="row">
             <div class="col-lg-4 col-sm-12">
               <div class="project-wrapper__text load-hidden">
@@ -153,7 +164,24 @@
                   <p class="mb-4">
                     A full-stack MERN application where users can create, browse, and share recipes with a community. Features include JWT authentication with a “Continue as Guest” option, GraphQL API integration, and dynamic MongoDB data models for storing recipes and user interactions. This project highlights my ability to design responsive UIs, implement secure authentication flows, and build scalable back-end services.
                   </p>
+
+                  <!-- NEW: Technologies -->
+                  <div class="project-tech-stack">
+                    <h4 class="project-tech-title">Technologies</h4>
+                    <ul class="project-tech">
+                      <li>React (Vite)</li>
+                      <li>Apollo Client</li>
+                      <li>Node.js</li>
+                      <li>Express.js</li>
+                      <li>GraphQL &amp; Apollo Server</li>
+                      <li>MongoDB &amp; Mongoose</li>
+                      <li>JWT Authentication</li>
+                      <li>Heroku</li>
+                    </ul>
+                  </div>
+                  <!-- /Technologies -->
                 </div>
+
                 <a
                   rel="noreferrer"
                   target="_blank"
@@ -193,56 +221,76 @@
             </div>
           </div>
           <!-- /END Project -->
-           <!-- Notice: each .row is a project. Project Start -->
-          <div class="row">
-            <div class="col-lg-4 col-sm-12">
-              <div class="project-wrapper__text load-hidden">
-                <h3 class="project-wrapper__text-title">Book Reviewer</h3>
-                <div>
-                  <p class="mb-4">
-                    A full-stack application which allows a user to create an account, then search and select a book to leave a review on.
-                  </p>
-                </div>
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  class="cta-btn cta-btn--hero"
-                  href="https://book-reviewer-new-fcafe92f19dd.herokuapp.com/"
-                >
-                  See Live
-                </a>
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  class="cta-btn text-color-main"
-                  href="https://github.com/mleblanc94/book-reviewer"
-                >
-                  Source Code
-                </a>
-              </div>
-            </div>
-            <div class="col-lg-8 col-sm-12">
-              <div class="project-wrapper__image load-hidden">
-                <a rel="noreferrer" href="#!" target="_blank">
-                  <div
-                    data-tilt
-                    data-tilt-max="4"
-                    data-tilt-glare="true"
-                    data-tilt-max-glare="0.5"
-                    class="thumbnail rounded js-tilt"
-                  >
-                    <img
-                      alt="Project Image"
-                      class="img-fluid"
-                      src="assets/book-reviewer.png"
-                    />
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-          <!-- /END Project -->
-           
+
+          <!-- Project: Book Reviewer -->
+<div class="row">
+  <div class="col-lg-4 col-sm-12">
+    <div class="project-wrapper__text load-hidden">
+      <h3 class="project-wrapper__text-title">Book Reviewer</h3>
+      <div>
+        <p class="mb-4">
+          A full-stack application which allows a user to create an account, receive a welcome email, then search and select a book to leave a review on.
+        </p>
+
+        <!-- NEW: Technologies -->
+        <div class="project-tech-stack">
+          <h4 class="project-tech-title">Technologies</h4>
+          <ul class="project-tech">
+            <li>Node.js</li>
+            <li>Express.js</li>
+            <li>MySQL2</li>
+            <li>Sequelize ORM</li>
+            <li>Express-Handlebars</li>
+            <li>Express-Session &amp; connect-session-sequelize</li>
+            <li>bcrypt</li>
+            <li>dotenv</li>
+            <li>Nodemailer</li>
+            <li>Heroku</li>
+          </ul>
+        </div>
+        <!-- /Technologies -->
+      </div>
+
+      <a
+        rel="noreferrer"
+        target="_blank"
+        class="cta-btn cta-btn--hero"
+        href="https://book-reviewer-new-fcafe92f19dd.herokuapp.com/"
+      >
+        See Live
+      </a>
+      <a
+        rel="noreferrer"
+        target="_blank"
+        class="cta-btn text-color-main"
+        href="https://github.com/mleblanc94/book-reviewer"
+      >
+        Source Code
+      </a>
+    </div>
+  </div>
+  <div class="col-lg-8 col-sm-12">
+    <div class="project-wrapper__image load-hidden">
+      <a rel="noreferrer" href="#!" target="_blank">
+        <div
+          data-tilt
+          data-tilt-max="4"
+          data-tilt-glare="true"
+          data-tilt-max-glare="0.5"
+          class="thumbnail rounded js-tilt"
+        >
+          <img
+            alt="Project Image"
+            class="img-fluid"
+            src="assets/book-reviewer.png"
+          />
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+<!-- /END Project -->
+
         </div>
       </div>
     </section>
@@ -283,7 +331,6 @@
 
         <hr />
 
-        <!-- Notice: if you want to give me some credit, it will be huge for me! if not, put your data on it -->
         <p class="footer__text">
           © 2025 -
           <a rel="noreferrer" href="https://github.com/cobidev" target="_blank"
